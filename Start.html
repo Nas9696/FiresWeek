@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خطة الأسبوع التمهيدي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap');
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f0f9ff;
+            color: #334155;
+            scroll-behavior: smooth;
+        }
+        .container {
+            max-width: 960px;
+        }
+        .card {
+            background-color: #FFFFFF;
+            border-radius: 2rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #1a202c;
+            position: relative;
+            padding-bottom: 0.75rem;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 70%;
+            height: 6px;
+            background-image: linear-gradient(to right, #6366f1, #a855f7);
+            border-radius: 9999px;
+        }
+        /* Navigation Links */
+        .nav-link {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.75rem 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 9999px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            display: flex;
+            align-items: center;
+        }
+        .nav-link:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 12px -3px rgba(0, 0, 0, 0.15);
+        }
+        .nav-link.active {
+            background-color: #fff;
+            color: #4f46e5;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .nav-icon {
+            margin-left: 0.5rem;
+            font-size: 1.25rem;
+        }
+        /* Modal Pop-up */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background-color: #fff;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            text-align: center;
+            animation: modal-pop 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            max-width: 400px;
+        }
+        @keyframes modal-pop {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        /* Hero Header Animation */
+        .hero-header-bg {
+            background: linear-gradient(45deg, #6366f1, #a855f7, #ec4899);
+            background-size: 400% 400%;
+            animation: gradient-flow 15s ease infinite;
+        }
+        @keyframes gradient-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        /* Icon Animations */
+        .animated-icon {
+            animation: bounce-scale 2s infinite ease-in-out;
+        }
+        @keyframes bounce-scale {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1.1); }
+        }
+        /* Page Transition Animation */
+        .page.fade-in {
+            animation: fade-in 0.5s ease-out;
+        }
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Table Styling */
+        .table-striped tbody tr:nth-child(odd) {
+            background-color: #f7f9fd;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        .day-header .arrow {
+            transition: transform 0.3s ease;
+        }
+        .day-header.open .arrow {
+            transform: rotate(90deg);
+        }
+        /* New and improved emojis/icons */
+        .emoji-big {
+            font-size: 5rem;
+            animation: bounce-rotate 3s infinite ease-in-out;
+        }
+        @keyframes bounce-rotate {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        .evaluation-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .evaluation-card {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .evaluation-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-blue-50 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+        <!-- Hero Header with "Framed" Titles -->
+        <header class="mb-12 bg-indigo-600 p-8 rounded-3xl shadow-2xl flex flex-col items-center text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">الأسبوع التمهيدي</h1>
+            <p class="text-lg md:text-xl font-medium mb-8 opacity-90">مغامرة جديدة، بداية سعيدة!</p>
+
+            <!-- Navigation Links Section -->
+            <nav class="w-full flex justify-center space-x-2 space-x-reverse flex-wrap gap-4 mt-6">
+                <a href="#welcome-section" class="nav-link">
+                    <i class="fas fa-home nav-icon"></i>
+                    مرحباً بكم
+                </a>
+                <a href="#basic-plan-section" class="nav-link">
+                    <i class="fas fa-calendar-alt nav-icon"></i>
+                    الخطة الأساسية
+                </a>
+                <a href="#messages-section" class="nav-link">
+                    <i class="fas fa-bullhorn nav-icon"></i>
+                    كلمات ترحيبية
+                </a>
+                <a href="#guidelines-section" class="nav-link">
+                    <i class="fas fa-list-alt nav-icon"></i>
+                    توجيهات
+                </a>
+                <a href="#schedule-section" class="nav-link">
+                    <i class="fas fa-clock nav-icon"></i>
+                    الجدول الزمني
+                </a>
+            </nav>
+        </header>
+
+        <!-- Main Content Sections -->
+        <main id="main-content" class="space-y-12">
+            <!-- Welcome Section -->
+            <section id="welcome-section" class="card p-8 fade-in">
+                <h2 class="section-title text-center mb-12">مرحباً بكم في مدرستكم! 🏫</h2>
+                <div class="flex flex-col md:flex-row items-center justify-center mb-6">
+                    <img src="https://placehold.co/150x150/8b5cf6/ffffff?text=👋" alt="Welcome Emoji" class="w-24 h-24 mb-4 md:mb-0 md:ml-6 animated-icon">
+                    <div class="text-center md:text-right">
+                        <h3 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-2">مدرسة محمد بن القاسم الابتدائية</h3>
+                        <p class="text-lg leading-relaxed text-gray-700">
+                            نحن متحمسون لاستقبال أبنائنا الطلاب في أسبوعهم التمهيدي، لنجعلهم يستكشفون عالمهم الجديد بكل ثقة وفرح!
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-8 text-center bg-gray-50 p-6 rounded-2xl border-dashed border-2 border-gray-300">
+                    <p class="text-xl font-bold text-gray-800 flex items-center justify-center">
+                        <i class="fas fa-mouse-pointer text-indigo-500 text-3xl ml-3"></i>
+                        استكشف الخطة الكاملة للمدرسة باستخدام شريط التنقل.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Basic Plan Section -->
+            <section id="basic-plan-section" class="card p-8">
+                <h2 class="section-title text-center mb-12">الخطة الأساسية للأسبوع التمهيدي</h2>
+                
+                <div class="bg-purple-50 p-6 rounded-2xl mb-12">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-info-circle text-4xl text-purple-600 ml-4 animated-icon"></i>
+                        <h3 class="text-xl font-extrabold text-gray-900">ما هو الأسبوع التمهيدي؟</h3>
+                    </div>
+                    <p class="text-lg leading-relaxed text-gray-700 pr-12">
+                        هو برنامج مصمم خصيصًا لتهيئة أطفالنا نفسيًا واجتماعيًا لمرحلة المدرسة. إنه جسر عبور يجمع بين اللعب والتعلم، ويساعدهم على بناء صداقات جديدة.
+                    </p>
+                </div>
+
+                <div class="bg-green-50 p-6 rounded-2xl mb-12">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-bullseye text-4xl text-green-600 ml-4 animated-icon"></i>
+                        <h3 class="text-xl font-extrabold text-gray-900">أهدافنا معكم 🎯</h3>
+                    </div>
+                    <ul class="list-none pr-12 space-y-3 text-lg text-gray-700">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 ml-2"></i> تهيئة الأطفال نفسيًا واجتماعيًا.</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 ml-2"></i> بناء علاقة ثقة بين المدرسة والأسرة.</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 ml-2"></i> تعريفهم بأقسام المدرسة ومرافقها.</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 ml-2"></i> مساعدة المعلمين على التعرف على شخصيات الطلاب.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-blue-50 p-6 rounded-2xl mb-12">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-users text-4xl text-blue-600 ml-4 animated-icon"></i>
+                        <h3 class="text-xl font-extrabold text-gray-900">فريقنا جاهز لخدمتكم! 👨‍👩‍👧‍👦</h3>
+                    </div>
+                    <div class="table-container">
+                        <table class="w-full text-sm md:text-base text-right text-gray-600 rounded-xl overflow-hidden shadow-md">
+                            <thead class="text-xs md:text-sm text-gray-700 uppercase bg-blue-100">
+                                <tr>
+                                    <th scope="col" class="py-3 px-6">العضو</th>
+                                    <th scope="col" class="py-3 px-6">الدور والمسؤوليات</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-blue-200">
+                                <tr class="bg-white hover:bg-blue-50 transition duration-150">
+                                    <td class="py-4 px-6 font-bold text-gray-900">👑 مدير المدرسة: سفر مبارك آل فلكه</td>
+                                    <td class="py-4 px-6">الإشراف العام والتوجيه.</td>
+                                </tr>
+                                <tr class="bg-white hover:bg-blue-50 transition duration-150">
+                                    <td class="py-4 px-6 font-bold text-gray-900">🤝 وكيل المدرسة</td>
+                                    <td class="py-4 px-6">تنسيق وتنظيم الأنشطة اليومية.</td>
+                                </tr>
+                                <tr class="bg-white hover:bg-blue-50 transition duration-150">
+                                    <td class="py-4 px-6 font-bold text-gray-900">💡 المرشد الطلابي: احمد عوير آل هتيله</td>
+                                    <td class="py-4 px-6">الدعم النفسي ومتابعة حالة الطلاب.</td>
+                                </tr>
+                                <tr class="bg-white hover:bg-blue-50 transition duration-150">
+                                    <td class="py-4 px-6 font-bold text-gray-900">✍️ معلمو الصف الأول</td>
+                                    <td class="py-4 px-6">التعرف على الطلاب وبناء علاقات معهم.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Messages Section -->
+            <section id="messages-section" class="card p-8">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-volume-up text-4xl text-red-600 ml-4 animated-icon"></i>
+                    <h2 class="section-title">كلمات ترحيبية</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-red-50 p-6 rounded-2xl border border-red-200 text-center">
+                        <h3 class="text-xl font-bold mb-2 flex items-center justify-center">
+                            مدير المدرسة <i class="fas fa-crown text-xl ml-2 text-yellow-500"></i>
+                        </h3>
+                        <p class="text-gray-600 italic">
+                            "أهلاً بكم في بيتكم الثاني، مدرسة محمد بن القاسم. بقلوب يملؤها الحب والأمل، نستقبل أبناءنا الطلاب الجدد في بداية رحلتهم التعليمية. هذه المرحلة هي حجر الأساس لمستقبلهم المشرق، ونحن هنا لنتعاون معًا في بناء جيل واعٍ ومبدع. نتطلع إلى شراكة مثمرة معكم، ونسأل الله أن يوفق الجميع لما يحبه ويرضاه."
+                        </p>
+                    </div>
+                    <div class="bg-red-50 p-6 rounded-2xl border border-red-200 text-center">
+                        <h3 class="text-xl font-bold mb-2 flex items-center justify-center">
+                            المرشد الطلابي <i class="fas fa-headset text-xl ml-2 text-cyan-500"></i>
+                        </h3>
+                        <p class="text-gray-600 italic">
+                            "أيها الأهل الكرام، لا تقلقوا، نحن معكم خطوة بخطوة. هدفنا الأول هو توفير بيئة مدرسية آمنة ومريحة لأبنائنا، وبيئة داعمة ومطمئنة لكم. نحن هنا للاستماع لأي مخاوف أو استفسارات، وتقديم الدعم النفسي والاجتماعي اللازم لضمان أن تكون هذه البداية تجربة إيجابية ومليئة بالثقة والفرح."
+                        </p>
+                    </div>
+                    <div class="bg-red-50 p-6 rounded-2xl border border-red-200 text-center">
+                        <h3 class="text-xl font-bold mb-2 flex items-center justify-center">
+                            وكيل المدرسة <i class="fas fa-handshake text-xl ml-2 text-green-500"></i>
+                        </h3>
+                        <p class="text-gray-600 italic">
+                            "أهلاً بكم مجددًا. سنعمل جاهدين لضمان سير البرنامج اليومي بسلاسة وتنظيم، ليكون أسبوعًا حافلاً بالإيجابية والفائدة. مسؤوليتنا هي أن نجعل كل يوم في المدرسة مغامرة ممتعة ومفيدة، وأن نوفر كل ما يحتاجه أبناؤنا ليتكيفوا مع بيئتهم الجديدة بسهولة ويسر."
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Guidelines Section -->
+            <section id="guidelines-section" class="card p-8">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-clipboard-check text-4xl text-orange-600 ml-4 animated-icon"></i>
+                    <h2 class="section-title">توجيهات لأولياء الأمور</h2>
+                </div>
+                <ul class="list-none pr-8 space-y-4 text-lg text-gray-700">
+                    <li class="flex items-start">
+                        <i class="fas fa-heart text-pink-500 text-3xl ml-3 mt-1"></i>
+                        <div>
+                            <span class="font-bold">التعاون مع المدرسة:</span>
+                            <p class="text-gray-600">نؤمن أن الشراكة بين البيت والمدرسة هي أساس نجاح الطالب، لذا نأمل منكم التواصل الدائم معنا.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-mobile-alt text-blue-500 text-3xl ml-3 mt-1"></i>
+                        <div>
+                            <span class="font-bold">التقيد بالتعليمات:</span>
+                            <p class="text-gray-600">نرجو منكم الالتزام بالتعليمات لضمان سلامة وراحة أبنائنا، وخاصة فيما يتعلق بالحضور والانصراف.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-bell text-yellow-500 text-3xl ml-3 mt-1"></i>
+                        <div>
+                            <span class="font-bold">متابعة المدرسة:</span>
+                            <p class="text-gray-600">ابقوا على اطلاع دائم عبر قنوات التواصل الرسمية، ومجموعات التواصل المخصصة.</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Daily Schedules and Evaluation Section -->
+            <section id="schedule-section" class="card p-8">
+                <h2 class="section-title text-center mb-12">الجدول التنفيذي والتقييم اليومي</h2>
+
+                <!-- Day 1 -->
+                <details id="day-1-details" class="day-card p-6 mb-6 rounded-2xl bg-white shadow-md">
+                    <summary class="day-header cursor-pointer flex items-center justify-between">
+                        <h3 class="text-xl font-bold text-indigo-700 flex items-center">
+                            <i class="fas fa-sun text-xl text-yellow-500 ml-2"></i> اليوم الأول: الأحد 25 أغسطس 2025
+                        </h3>
+                        <i class="fas fa-chevron-left text-indigo-500 text-xl arrow transition-transform duration-300"></i>
+                    </summary>
+                    <div class="mt-4 border-t pt-4">
+                        <div class="table-container">
+                            <table class="w-full text-sm text-right text-gray-600 rounded-xl overflow-hidden shadow-sm table-striped">
+                                <thead class="text-xs text-gray-700 uppercase bg-indigo-100">
+                                    <tr>
+                                        <th scope="col" class="py-3 px-6">الوقت</th>
+                                        <th scope="col" class="py-3 px-6">الفقرة</th>
+                                        <th scope="col" class="py-3 px-6">الهدف</th>
+                                        <th scope="col" class="py-3 px-6">المنفذون</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white">
+                                        <td class="py-4 px-6">07:00–07:30</td>
+                                        <td class="py-4 px-6 font-bold text-gray-900">✨ استقبال الطلاب</td>
+                                        <td class="py-4 px-6">خلق انطباع آمن وإيجابي.</td>
+                                        <td class="py-4 px-6">جميع المعلمون</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="py-4 px-6">07:30–07:50</td>
+                                        <td class="py-4 px-6 font-bold text-gray-900">📝 لقاء تعريفي</td>
+                                        <td class="py-4 px-6">كلمة المدير والمرشد الطلابي.</td>
+                                        <td class="py-4 px-6">المدير + المرشد</td>
+                                    </tr>
+                                    <tr class="bg-white">
+                                        <td class="py-4 px-6">07:50–08:10</td>
+                                        <td class="py-4 px-6 font-bold text-gray-900">  جولة في المدرسة</td>
+                                        <td class="py-4 px-6">تعريف الطلاب بالفصول والمرافق.</td>
+                                        <td class="py-4 px-6">المعلمون</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="py-4 px-6">08:10–08:30</td>
+                                        <td class="py-4 px-6 font-bold text-gray-900">🎈 فقرة ترفيهية وألعاب</td>
+                                        <td class="py-4 px-6">تكسير حاجز الخوف وبناء علاقات.</td>
+                                        <td class="py-4 px-6">رائد النشاط</td>
+                                    </tr>
+                                    <tr class="bg-white">
+                                        <td class="py-4 px-6">08:30–09:00</td>
+                                        <td class="py-4 px-6 font-bold text-gray-900">👋 توديع الطلاب</td>
+                                        <td class="py-4 px-6">توديع الطلاب وأولياء الأمور بترتيب.</td>
+                                        <td class="py-4 px-6">المدير + الوكيل + المعلمون</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-6 p-4 bg-yellow-50 rounded-xl border-2 border-yellow-200">
+                            <h4 class="text-lg font-bold text-yellow-600 mb-4">أدوات المتابعة والتقييم ليوم الأحد</h4>
+                            <div class="evaluation-section space-y-4">
+                                <!-- الانضباط -->
+                                <div class="evaluation-card">
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">الانضباط</label>
+                                    <select class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" data-day="الأحد" data-type="discipline">
+                                        <option value="">اختر مستوى الانضباط</option>
+                                        <option value="ممتاز">ممتاز</option>
+                                        <option value="جيد">جيد</option>
+                                        <option value="يحتاج إلى تحسين">يحتاج إلى تحسين</option>
+                                    </select>
+                                </div>
+                                <!-- تنفيذ الفقرات -->
+                                <div class="evaluation-card">
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">تنفيذ الفقرات</label>
+                                    <select class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" data-day="الأحد" data-type="execution">
+                                        <option value="">اختر مستوى التنفيذ</option>
+                                        <option value="كامل">كامل</option>
+                                        <option value="جزئي">جزئي</option>
+                                        <option value="غير منفذ">غير منفذ</option>
+                                    </select>
+                                </div>
+                                <!-- الملاحظات -->
+                                <div class="evaluation-card">
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">الملاحظات</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md h-24 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="سجل ملاحظاتك هنا..." data-day="الأحد" data-type="notes"></textarea>
+                                </div>
+                                <!-- الإجراءات المتخذة -->
+                                <div class="evaluation-card">
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">الإجراءات المتخذة</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md h-24 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="سجل الإجراءات المتخذة هنا..." data-day="الأحد" data-type="actions"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Day 2 -->
+                <details id="day-2-details" class="day-card p-6 mb-6 rounded-2xl bg-white shadow-md">
+                    <summary class="day-header cursor-pointer flex items-center justify-between">
+                        <h3 class="text-xl font-bold text-indigo-700 flex items-center">
+                            <i class="fas fa-star text-xl text-yellow-500 ml-2"></i> اليوم الثاني: الاثنين 26 أغسطس 2025
+                        </h3>
+                        <i class="fas fa-chevron-left text-indigo-500 text-xl arrow transition-transform duration-300"></i>
+                    </summary>
+                    <div class="mt-4 border-t pt-4">
+                        <div class="table-container">
+                            <table class="w-full text-sm text-right text-gray-600 rounded-xl overflow-hidden shadow-sm table-striped">
+                                <thead class="text-xs text-gray-700 uppercase bg-indigo-100">
+                                    <tr>
+                                        <th scope="col" class="py-3 px-6">الوقت</th>
+                                        <th scope="col" class="py-3 px-6">الفقرة</th>
+                                        <th scope="col" class="py-3 px-6">الهدف</th>
+                                        <th scope="col" class="py-3 px-6">المنفذون</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white">
+                                        <td class="py-4 px-6">07:00–07:20</td>
+                                        <td class="py-4 px-6 font-bold text-gray-900">🤸 طابور صباحي</td>
+                                        <td class="py-4 px-6">تعويد الطلاب على النظام.</td>
+                                        <td class="py-4 px-6">الوكيل + المعلمون</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="py-4 px-6">07:20–07:50</td>
+                                        <td class="py-4 px-6 font-bold text-gray-900">🎮 ألعاب حركية وتعارف</td>
+                                        <td class="py-4 px-6">تفريغ الطاقة وبناء صداقات.</td>
+                                        <td class="py-4 px-6">رائد النشاط</td>
+                                    </tr>
+                                    <tr class="bg-white">
+                                        <td class="py-4 px-6">07:50–08:10</td>
+                                        <td class="py-4 px-6 font-bold text-gray-900">📖 قصة مصورة</td>
+                                        <td class="py-4 px-6">تعزيز مهارات الاستماع والتركيز.</td>
+                                        <td class="py-4 px-6">المرشد الطلابي</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="py-4 px-6">08:10–08:30</td>
+                                        <td class="py-4 px-6 font-bold text-gray-900">🍎 وجبة الإفطار الصحية</td>
+                                        <td class="py-4 px-6">تعزيز العادات الغذائية السليمة.</td>
+                                        <td class="py-4 px-6">المعلمون</td>
+                                    </tr>
+                                    <tr class="bg-white">
+                                        <td class="py-4 px-6">08:30–09:00</td>
+                                        <td class="py-4 px-6 font-bold text-gray-900">👋 توديع الطلاب</td>
+                                        <td class="py-4 px-6">توديع الطلاب وأولياء الأمور بترتيب.</td>
+                                        <td class="py-4 px-6">المدير + الوكيل + المعلمون</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-6 p-4 bg-yellow-50 rounded-xl border-2 border-yellow-200">
+                            <h4 class="text-lg font-bold text-yellow-600 mb-4">أدوات المتابعة والتقييم ليوم الاثنين</h4>
+                            <div class="evaluation-section space-y-4">
+                                <!-- الانضباط -->
+                                <div class="evaluation-card">
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">الانضباط</label>
+                                    <select class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" data-day="الاثنين" data-type="discipline">
+                                        <option value="">اختر مستوى الانضباط</option>
+                                        <option value="ممتاز">ممتاز</option>
+                                        <option value="جيد">جيد</option>
+                                        <option value="يحتاج إلى تحسين">يحتاج إلى تحسين</option>
+                                    </select>
+                                </div>
+                                <!-- تنفيذ الفقرات -->
+                                <div class="evaluation-card">
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">تنفيذ الفقرات</label>
+                                    <select class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" data-day="الاثنين" data-type="execution">
+                                        <option value="">اختر مستوى التنفيذ</option>
+                                        <option value="كامل">كامل</option>
+                                        <option value="جزئي">جزئي</option>
+                                        <option value="غير منفذ">غير منفذ</option>
+                                    </select>
+                                </div>
+                                <!-- الملاحظات -->
+                                <div class="evaluation-card">
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">الملاحظات</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md h-24 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="سجل ملاحظاتك هنا..." data-day="الاثنين" data-type="notes"></textarea>
+                                </div>
+                                <!-- الإجراءات المتخذة -->
+                                <div class="evaluation-card">
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">الإجراءات المتخذة</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md h-24 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="سجل الإجراءات المتخذة هنا..." data-day="الاثنين" data-type="actions"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+                
+                <!-- Day 3 -->
+                <details id="day-3-details" class="day-card p-6 mb-6 rounded-2xl bg-white shadow-md">
+                    <summary class="day-header cursor-pointer flex items-center justify-between">
+                        <h3 class="text-xl font-bold text-indigo-700 flex items-center">
+                            <i class="fas fa-paint-brush text-xl text-yellow-500 ml-2"></i> اليوم الثالث: الثلاثاء 27 أغسطس 2025
+                        </h3>
+                        <i class="fas fa-chevron-left text-indigo-500 text-xl arrow transition-transform duration-300"></i>
+                    </summary>
+                    <div class="mt-4 border-t pt-4">
+                        <div class="table-container">
+                            <table class="w-full text-sm text-right text-gray-600 rounded-xl overflow-hidden shadow-sm table-striped">
+                                <thead class="text-xs text-gray-700 uppercase bg-indigo-100">
+                                    <tr>
+                                        <th scope="col" class="py-3 px-6">الوقت</th>
+                                        <th scope="col" class="py-3 px-6">الفقرة</th>
+                                        <th scope="col" class="py-3 px-6">الهدف</th>
+                                        <th scope="col" class="py-3 px-6">المنفذون</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white">
+                                        <td class="py-4 px-6">07:00–07:40</td>
+                                        <td class="py-4 px-6 font-bold text-gray-900">🎨 ورشة فنية</td>
+                                        <td class="py-4 px-6">تنمية الإبداع والمهارات الحركية الدقيقة.</td>
+                                        <td class="py-4 px-6">المعلمون</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="py-4 px-6">07:40–08:20</td>
+                                        <td class="py-4 px-6 font-bold text-gray-900">📖 قصة مصورة عن الأمان</td>
+                                        <td class="py-4 px-6">توعية الطلاب بأهمية الأمان في المدرسة.</td>
+                                        <td class="py-4 px-6">المرشد الطلابي</td>
+                                    </tr>
+                                    <tr class="bg-white">
+                                        <td class="py-4 px-6">08:20–08:40</td>
+                                        <td class="py-4 px-6 font-bold text-gray-900">🧠 فقرة "هل تعلم؟"</td>
+                                        <td class="py-4 px-6">إثراء معلومات الطلاب بطريقة شيقة.</td>
+                                        <td class="py-4 px-6">رائد النشاط</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="py-4 px-6">08:40–09:00</td>
+                                        <td class="py-4 px-6 font-bold text-gray-900">👋 توديع الطلاب</td>
+                                        <td class="py-4 px-6">توديع الطلاب وأولياء الأمور بترتيب.</td>
+                                        <td class="py-4 px-6">المدير + الوكيل + المعلمون</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-6 p-4 bg-yellow-50 rounded-xl border-2 border-yellow-200">
+                            <h4 class="text-lg font-bold text-yellow-600 mb-4">أدوات المتابعة والتقييم ليوم الثلاثاء</h4>
+                            <div class="evaluation-section space-y-4">
+                                <!-- الانضباط -->
+                                <div class="evaluation-card">
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">الانضباط</label>
+                                    <select class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" data-day="الثلاثاء" data-type="discipline">
+                                        <option value="">اختر مستوى الانضباط</option>
+                                        <option value="ممتاز">ممتاز</option>
+                                        <option value="جيد">جيد</option>
+                                        <option value="يحتاج إلى تحسين">يحتاج إلى تحسين</option>
+                                    </select>
+                                </div>
+                                <!-- تنفيذ الفقرات -->
+                                <div class="evaluation-card">
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">تنفيذ الفقرات</label>
+                                    <select class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" data-day="الثلاثاء" data-type="execution">
+                                        <option value="">اختر مستوى التنفيذ</option>
+                                        <option value="كامل">كامل</option>
+                                        <option value="جزئي">جزئي</option>
+                                        <option value="غير منفذ">غير منفذ</option>
+                                    </select>
+                                </div>
+                                <!-- الملاحظات -->
+                                <div class="evaluation-card">
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">الملاحظات</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md h-24 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="سجل ملاحظاتك هنا..." data-day="الثلاثاء" data-type="notes"></textarea>
+                                </div>
+                                <!-- الإجراءات المتخذة -->
+                                <div class="evaluation-card">
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">الإجراءات المتخذة</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md h-24 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="سجل الإجراءات المتخذة هنا..." data-day="الثلاثاء" data-type="actions"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Day 4 -->
+                <details id="day-4-details" class="day-card p-6 mb-6 rounded-2xl bg-white shadow-md">
+                    <summary class="day-header cursor-pointer flex items-center justify-between">
+                        <h3 class="text-xl font-bold text-indigo-700 flex items-center">
+                            <i class="fas fa-child text-xl text-yellow-500 ml-2"></i> اليوم الرابع: الأربعاء 28 أغسطس 2025
+                        </h3>
+                        <i class="fas fa-chevron-left text-indigo-500 text-xl arrow transition-transform duration-300"></i>
+                    </summary>
+                    <div class="mt-4 border-t pt-4">
+                        <div class="table-container">
+                            <table class="w-full text-sm text-right text-gray-600 rounded-xl overflow-hidden shadow-sm table-striped">
+                                <thead class="text-xs text-gray-700 uppercase bg-indigo-100">
+                                    <tr>
+                                        <th scope="col" class="py-3 px-6">الوقت</th>
+                                        <th scope="col" class="py-3 px-6">الفقرة</th>
+                                        <th scope="col" class="py-3 px-6">الهدف</th>
+                                        <th scope="col" class="py-3 px-6">المنفذون</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white">
+                                        <td class="py-4 px-6">07:00–07:40</td>
+                                        <td class="py-4 px-6 font-bold text-gray-900">📚 تهيئة أكاديمية مبسطة</td>
+                                        <td class="py-4 px-6">التعرف على الأرقام والحروف بشكل ممتع.</td>
+                                        <td class="py-4 px-6">المعلمون</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="py-4 px-6">07:40–08:20</td>
+                                        <td class="py-4 px-6 font-bold text-gray-900">🤝 جلسة مهارات حياتية</td>
+                                        <td class="py-4 px-6">تعزيز السلوك الاجتماعي الإيجابي.</td>
+                                        <td class="py-4 px-6">المرشد الطلابي</td>
+                                    </tr>
+                                    <tr class="bg-white">
+                                        <td class="py-4 px-6">08:20–08:40</td>
+                                        <td class="py-4 px-6 font-bold text-gray-900">🎶 أنشودة الصباح</td>
+                                        <td class="py-4 px-6">تنمية الحس الفني والمشاركة الجماعية.</td>
+                                        <td class="py-4 px-6">رائد النشاط</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="py-4 px-6">08:40–09:00</td>
+                                        <td class="py-4 px-6 font-bold text-gray-900">👋 توديع الطلاب</td>
+                                        <td class="py-4 px-6">توديع الطلاب وأولياء الأمور بترتيب.</td>
+                                        <td class="py-4 px-6">المدير + الوكيل + المعلمون</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-6 p-4 bg-yellow-50 rounded-xl border-2 border-yellow-200">
+                            <h4 class="text-lg font-bold text-yellow-600 mb-4">أدوات المتابعة والتقييم ليوم الأربعاء</h4>
+                            <div class="evaluation-section space-y-4">
+                                <!-- الانضباط -->
+                                <div class="evaluation-card">
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">الانضباط</label>
+                                    <select class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" data-day="الأربعاء" data-type="discipline">
+                                        <option value="">اختر مستوى الانضباط</option>
+                                        <option value="ممتاز">ممتاز</option>
+                                        <option value="جيد">جيد</option>
+                                        <option value="يحتاج إلى تحسين">يحتاج إلى تحسين</option>
+                                    </select>
+                                </div>
+                                <!-- تنفيذ الفقرات -->
+                                <div class="evaluation-card">
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">تنفيذ الفقرات</label>
+                                    <select class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" data-day="الأربعاء" data-type="execution">
+                                        <option value="">اختر مستوى التنفيذ</option>
+                                        <option value="كامل">كامل</option>
+                                        <option value="جزئي">جزئي</option>
+                                        <option value="غير منفذ">غير منفذ</option>
+                                    </select>
+                                </div>
+                                <!-- الملاحظات -->
+                                <div class="evaluation-card">
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">الملاحظات</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md h-24 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="سجل ملاحظاتك هنا..." data-day="الأربعاء" data-type="notes"></textarea>
+                                </div>
+                                <!-- الإجراءات المتخذة -->
+                                <div class="evaluation-card">
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">الإجراءات المتخذة</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md h-24 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="سجل الإجراءات المتخذة هنا..." data-day="الأربعاء" data-type="actions"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Day 5 -->
+                <details id="day-5-details" class="day-card p-6 mb-6 rounded-2xl bg-white shadow-md">
+                    <summary class="day-header cursor-pointer flex items-center justify-between">
+                        <h3 class="text-xl font-bold text-indigo-700 flex items-center">
+                            <i class="fas fa-trophy text-xl text-yellow-500 ml-2"></i> اليوم الخامس: الخميس 29 أغسطس 2025
+                        </h3>
+                        <i class="fas fa-chevron-left text-indigo-500 text-xl arrow transition-transform duration-300"></i>
+                    </summary>
+                    <div class="mt-4 border-t pt-4">
+                        <h4 class="text-lg font-bold text-indigo-800 mb-4">"نحتفل ببدايتنا"</h4>
+                        <div class="table-container">
+                            <table class="w-full text-sm text-right text-gray-600 rounded-xl overflow-hidden shadow-sm table-striped">
+                                <thead class="text-xs text-gray-700 uppercase bg-indigo-100">
+                                    <tr>
+                                        <th scope="col" class="py-3 px-6">الوقت</th>
+                                        <th scope="col" class="py-3 px-6">الفقرة</th>
+                                        <th scope="col" class="py-3 px-6">الهدف</th>
+                                        <th scope="col" class="py-3 px-6">المنفذون</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white">
+                                        <td class="py-4 px-6">07:00–07:30</td>
+                                        <td class="py-4 px-6 font-bold text-gray-900">🔄 مراجعة أسبوعية</td>
+                                        <td class="py-4 px-6">استرجاع أهم ما تعلمناه</td>
+                                        <td class="py-4 px-6">المعلم + المرشد</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="py-4 px-6">07:30–08:30</td>
+                                        <td class="py-4 px-6 font-bold text-gray-900">🎉 حفل ختامي</td>
+                                        <td class="py-4 px-6">تكريم الطلاب، عرض صور</td>
+                                        <td class="py-4 px-6">المدير + رائد النشاط + المصوّر</td>
+                                    </tr>
+                                    <tr class="bg-white">
+                                        <td class="py-4 px-6">08:30–09:00</td>
+                                        <td class="py-4 px-6 font-bold text-gray-900">📋 إعلان توزيع الفصول</td>
+                                        <td class="py-4 px-6">تنظيم الفصول للعام الدراسي</td>
+                                        <td class="py-4 px-6">المدير + المعلمون</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="py-4 px-6">09:00–09:30</td>
+                                        <td class="py-4 px-6 font-bold text-gray-900">💻 ركن تعريف أولياء الأمور</td>
+                                        <td class="py-4 px-6">شرح المنصات التعليمية</td>
+                                        <td class="py-4 px-6">معلم + المرشد</td>
+                                    </tr>
+                                    <tr class="bg-white">
+                                        <td class="py-4 px-6">09:30–11:00</td>
+                                        <td class="py-4 px-6 font-bold text-gray-900">👋 توديع احترافي</td>
+                                        <td class="py-4 px-6">ترتيب خروج دفعات صغيرة</td>
+                                        <td class="py-4 px-6">المدير + الوكيل + المرشد</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- Evaluation Section for Thursday -->
+                        <div class="mt-6 p-4 bg-yellow-50 rounded-xl border-2 border-yellow-200">
+                            <h4 class="text-lg font-bold text-yellow-600 mb-4">أدوات المتابعة والتقييم ليوم الخميس</h4>
+                            <div class="evaluation-section space-y-4">
+                                <!-- الانضباط -->
+                                <div class="evaluation-card">
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">الانضباط</label>
+                                    <select class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" data-day="الخميس" data-type="discipline">
+                                        <option value="">اختر مستوى الانضباط</option>
+                                        <option value="ممتاز">ممتاز</option>
+                                        <option value="جيد">جيد</option>
+                                        <option value="يحتاج إلى تحسين">يحتاج إلى تحسين</option>
+                                    </select>
+                                </div>
+                                <!-- تنفيذ الفقرات -->
+                                <div class="evaluation-card">
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">تنفيذ الفقرات</label>
+                                    <select class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" data-day="الخميس" data-type="execution">
+                                        <option value="">اختر مستوى التنفيذ</option>
+                                        <option value="كامل">كامل</option>
+                                        <option value="جزئي">جزئي</option>
+                                        <option value="غير منفذ">غير منفذ</option>
+                                    </select>
+                                </div>
+                                <!-- الملاحظات -->
+                                <div class="evaluation-card">
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">الملاحظات</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md h-24 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="سجل ملاحظاتك هنا..." data-day="الخميس" data-type="notes"></textarea>
+                                </div>
+                                <!-- الإجراءات المتخذة -->
+                                <div class="evaluation-card">
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">الإجراءات المتخذة</label>
+                                    <textarea class="w-full p-2 border border-gray-300 rounded-md h-24 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="سجل الإجراءات المتخذة هنا..." data-day="الخميس" data-type="actions"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Global Save/Load Buttons -->
+                <div class="mt-8 text-center space-x-4 space-x-reverse">
+                    <button id="save-btn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition transform hover:scale-105">
+                        <i class="fas fa-save ml-2"></i> حفظ البيانات
+                    </button>
+                    <button id="load-btn" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transition transform hover:scale-105">
+                        <i class="fas fa-cloud-download-alt ml-2"></i> تحميل البيانات
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Modal Popup for Save/Load confirmation -->
+        <div id="modal" class="modal-overlay hidden">
+            <div class="modal-content">
+                <div class="flex flex-col items-center">
+                    <i id="modal-icon" class="text-6xl mb-4 text-green-500"></i>
+                    <h3 id="modal-title" class="text-xl md:text-2xl font-bold mb-2"></h3>
+                    <p id="modal-message" class="text-gray-600 text-center mb-6"></p>
+                    <button id="modal-close" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-6 rounded-full shadow-lg transition duration-200">
+                        حسناً
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center text-gray-500 text-sm mt-8">
+            <p>جميع الحقوق محفوظة لمدرسة محمد بن القاسم الابتدائية</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const saveBtn = document.getElementById('save-btn');
+            const loadBtn = document.getElementById('load-btn');
+            const modal = document.getElementById('modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalMessage = document.getElementById('modal-message');
+            const modalIcon = document.getElementById('modal-icon');
+            const modalCloseBtn = document.getElementById('modal-close');
+            const days = ["الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس"];
+
+            // Show modal popup
+            function showModal(title, message, iconClass, colorClass) {
+                modalTitle.textContent = title;
+                modalMessage.textContent = message;
+                modalIcon.className = `${iconClass} ${colorClass} text-6xl mb-4`;
+                modal.classList.remove('hidden');
+                modal.classList.add('open');
+            }
+
+            // Close modal popup
+            function closeModal() {
+                modal.classList.remove('open');
+                setTimeout(() => modal.classList.add('hidden'), 300);
+            }
+
+            // Handle collapsible day sections
+            const dayDetails = document.querySelectorAll('details');
+            dayDetails.forEach(details => {
+                details.addEventListener('toggle', () => {
+                    const arrow = details.querySelector('.arrow');
+                    if (details.open) {
+                        details.classList.add('open');
+                    } else {
+                        details.classList.remove('open');
+                    }
+                });
+            });
+
+            // Function to save data to localStorage
+            function saveData() {
+                const data = {};
+                days.forEach(day => {
+                    data[day] = {};
+                    const dayDetailsElement = document.getElementById(`day-${days.indexOf(day) + 1}-details`);
+                    if (dayDetailsElement) {
+                        dayDetailsElement.querySelectorAll('textarea, select').forEach(element => {
+                            const type = element.dataset.type;
+                            data[day][type] = element.value;
+                        });
+                    }
+                });
+                localStorage.setItem('evaluationData', JSON.stringify(data));
+                showModal('تم الحفظ بنجاح!', 'لقد قمنا بحفظ بياناتك في المتصفح.', 'fas fa-check-circle', 'text-green-500');
+            }
+
+            // Function to populate the evaluation form with stored data
+            function populateEvaluationForm(data) {
+                days.forEach(day => {
+                    const dayData = data[day] || {};
+                    const dayDetailsElement = document.getElementById(`day-${days.indexOf(day) + 1}-details`);
+                    if (dayDetailsElement) {
+                        dayDetailsElement.querySelectorAll('textarea, select').forEach(element => {
+                            const type = element.dataset.type;
+                            if (dayData[type] !== undefined) {
+                                element.value = dayData[type];
+                            }
+                        });
+                    }
+                });
+            }
+
+            // Function to load data from localStorage
+            function loadData() {
+                const storedData = localStorage.getItem('evaluationData');
+                if (storedData) {
+                    try {
+                        const data = JSON.parse(storedData);
+                        populateEvaluationForm(data);
+                        showModal('تم التحميل بنجاح!', 'لقد قمنا باستعادة بياناتك المحفوظة.', 'fas fa-cloud-download-alt', 'text-blue-500');
+                    } catch (e) {
+                        console.error('Failed to parse data from localStorage', e);
+                        showModal('فشل التحميل!', 'يبدو أن هناك مشكلة في البيانات المحفوظة.', 'fas fa-times-circle', 'text-red-500');
+                    }
+                } else {
+                    showModal('لا توجد بيانات!', 'لا يوجد أي بيانات محفوظة في المتصفح حاليًا.', 'fas fa-exclamation-triangle', 'text-yellow-500');
+                }
+            }
+
+            // Event listeners for buttons
+            if (saveBtn) saveBtn.addEventListener('click', saveData);
+            if (loadBtn) loadBtn.addEventListener('click', loadData);
+            if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target.id === 'modal' || e.target.id === 'modal-close') {
+                    closeModal();
+                }
+            });
+
+            // Initial load of data and show home page
+            loadData();
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+ 
